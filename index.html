@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="shortcut icon" href="img/logo.png" />
+    <title>Marhaban Ya Ramadhan</title>
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
+  <body class="notLoaded">
+    <audio id="player">
+      <source src="/audio/marhaban.mp3" type="audio/mpeg" />
+    </audio>
+
+    <div id="preloader" class="page-load">
+      <div class="text">
+        <h3>loading...</h3>
+      </div>
+    </div>
+
+    <div class="lamps-container">
+      <div class="lamps">
+        <img class="vert-move1" src="/img/lampu (1).png" />
+        <img class="vert-move3" src="/img/lampu (1).png" />
+        <img class="vert-move2" src="/img/lampu (1).png" />
+      </div>
+      <div class="lamps-sec">
+        <img class="vert-move1" src="/img/lampu (1).png" />
+        <img class="vert-move3" src="/img/lampu (1).png" />
+        <img class="vert-move2" src="/img/lampu (1).png" />
+      </div>
+    </div>
+
+    <section>
+      <div class="text">
+        <h2>
+          Marhaban Ya Ramadhan <br />
+          <span>to you and your family</span>
+          <a href="https://www.instagram.com/rizkimunawars/"><ion-icon name="logo-instagram"></ion-icon> Muhamad Rizki Munawar</a>
+        </h2>
+      </div>
+
+      <div class="masjid"></div>
+
+      <div class="btn">
+        <button id="click" onclick="document.getElementById('player').play()"><ion-icon name="play"></ion-icon></button>
+        <button id="click" onclick="document.getElementById('player').pause()"><ion-icon name="pause"></ion-icon></button>
+        <button id="diam" onclick="document.getElementById('player').muted=!document.getElementById('player').muted"><ion-icon name="volume-mute"></ion-icon></button>
+      </div>
+    </section>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.9.1/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.1.1/TextPlugin.min.js"></script>
+
+    <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+
+    <script>
+      gsap.registerPlugin(TextPlugin);
+      gsap.from('h3', { duration: 3, text: '', repeat: 3 });
+    </script>
+    <script>
+      $(document).ready(function () {
+        $('#click').click(function () {
+          document.getElementById('player').play();
+        });
+        setTimeout(function () {
+          $('#click').trigger('click');
+        }, 100);
+        window.onload = function () {
+          document.getElementById('click').click();
+        };
+      });
+    </script>
+
+    <script>
+      $(document).ready(function () {
+        window.setTimeout('fadeout();', 5000);
+      });
+
+      function fadeout() {
+        $('#preloader')
+          .delay(1000)
+          .fadeOut('fast', function () {
+            $('.notLoaded').removeClass('notLoaded');
+          });
+      }
+    </script>
+  </body>
+</html>
